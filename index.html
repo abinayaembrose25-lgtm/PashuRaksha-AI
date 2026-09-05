@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Dashboard | PashuRaksha AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🐄</span>
+        <span>PashuRaksha <strong>AI</strong></span>
+      </div>
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+        <a class="nav-item" href="#animals"><span class="nav-icon">◉</span><span>My Animals</span></a>
+        <a class="nav-item" href="health-check.html"><span class="nav-icon">✚</span><span>Health Check</span></a>
+        <a class="nav-item" href="records.html"><span class="nav-icon">▤</span><span>Health Records</span></a>
+        <a class="nav-item" href="alerts.html"><span class="nav-icon">!</span><span>Disease Alerts</span><span class="nav-badge">3</span></a>
+        <a class="nav-item" href="vet.html"><span class="nav-icon">♧</span><span>Veterinarian</span></a>
+        <a class="nav-item" href="map.html"><span class="nav-icon">⌖</span><span>Outbreak Map</span></a>
+        <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="help-card">
+          <span class="help-icon">?</span>
+          <div><strong>Need help?</strong><small>Talk to our care team</small></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="sidebar-version">PashuRaksha AI · v2.4</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <div class="page-heading"><span class="eyebrow">OVERVIEW</span><h1>Farmer Dashboard</h1></div>
+        <div class="topbar-actions">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search animals, reports..." aria-label="Search animals and reports"></label>
+          <button class="icon-button notification-button" aria-label="View notifications"><span>♢</span><i></i></button>
+          <div class="profile"><div class="avatar">RK</div><div class="profile-copy"><strong>Ramesh Kumar</strong><span>Farmer</span></div><span class="chevron">⌄</span></div>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="welcome-row">
+          <div><p class="eyebrow">SATURDAY, 05 SEPTEMBER 2026</p><h2>Welcome back, Farmer <span class="wave">👋</span></h2><p class="muted">Here is today's health overview of your livestock.</p></div>
+          <a class="primary-button" href="health-check.html"><span>✚</span> Check Animal Health</a>
+        </section>
+
+        <section class="stats-grid" aria-label="Animal health summary">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon green-icon">◉</span><span class="trend positive">↗ 12.5%</span></div><p>Total Animals</p><strong>48</strong><small>Registered livestock</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon mint-icon">✓</span><span class="trend positive">↗ 8.2%</span></div><p>Healthy</p><strong>36</strong><small>75% of total animals</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon amber-icon">!</span><span class="trend neutral">— 2.1%</span></div><p>Medium Risk</p><strong>8</strong><small>Needs monitoring</small></article>
+          <article class="stat-card alert-stat"><div class="stat-top"><span class="stat-icon red-icon">!</span><span class="trend negative">↗ 4.6%</span></div><p>High Risk</p><strong>4</strong><small>Requires attention</small></article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel reports-panel" id="animals">
+            <div class="panel-header"><div><h3>Recent Health Reports</h3><p>Latest checks across your livestock</p></div><a class="text-link" href="records.html">View all <span>→</span></a></div>
+            <div class="table-wrap"><table><thead><tr><th>Animal ID</th><th>Animal</th><th>Date</th><th>Risk Level</th><th>Status</th></tr></thead><tbody id="reportRows">
+              <tr><td><strong>PR-1048</strong></td><td><span class="animal-cell"><span class="animal-avatar cow">🐄</span> Gauri</span></td><td>05 Sep 2026</td><td><span class="risk low">Low</span></td><td><span class="status"><i></i> Healthy</span></td></tr>
+              <tr><td><strong>PR-1047</strong></td><td><span class="animal-cell"><span class="animal-avatar buffalo">🐃</span> Kali</span></td><td>04 Sep 2026</td><td><span class="risk medium">Medium</span></td><td><span class="status"><i></i> Monitoring</span></td></tr>
+              <tr><td><strong>PR-1046</strong></td><td><span class="animal-cell"><span class="animal-avatar cow">🐄</span> Lakshmi</span></td><td>03 Sep 2026</td><td><span class="risk low">Low</span></td><td><span class="status"><i></i> Healthy</span></td></tr>
+              <tr><td><strong>PR-1045</strong></td><td><span class="animal-cell"><span class="animal-avatar goat">🐐</span> Meena</span></td><td>03 Sep 2026</td><td><span class="risk high">High</span></td><td><span class="status urgent"><i></i> Action needed</span></td></tr>
+            </tbody></table></div>
+          </article>
+
+          <article class="panel alerts-panel">
+            <div class="panel-header"><div><h3>Disease Alerts</h3><p>Requires your attention</p></div><a class="text-link" href="alerts.html">See all <span>→</span></a></div>
+            <div class="alert-list">
+              <div class="alert-item"><span class="alert-symbol">!</span><div><strong>Meena · PR-1045</strong><p>Possible foot-and-mouth symptoms</p><small>Detected 2 hours ago</small></div><a href="vet.html" class="alert-action" aria-label="Contact veterinarian">→</a></div>
+              <div class="alert-item"><span class="alert-symbol">!</span><div><strong>Rani · PR-1039</strong><p>Unusual temperature detected</p><small>Detected yesterday</small></div><a href="health-check.html" class="alert-action" aria-label="Run health check">→</a></div>
+              <div class="alert-item"><span class="alert-symbol">!</span><div><strong>Herd notice</strong><p>New regional advisory available</p><small>Updated 2 days ago</small></div><a href="map.html" class="alert-action" aria-label="View outbreak map">→</a></div>
+            </div>
+          </article>
+
+          <article class="panel chart-panel">
+            <div class="panel-header"><div><h3>Livestock Health Overview</h3><p>Health distribution this month</p></div><select aria-label="Chart period"><option>This month</option><option>Last month</option></select></div>
+            <div class="chart-content"><div class="donut-chart"><div class="donut-center"><strong>48</strong><span>animals</span></div></div><div class="chart-legend"><div><i class="legend-dot healthy-dot"></i><span>Healthy</span><strong>75%</strong></div><div><i class="legend-dot medium-dot"></i><span>Medium risk</span><strong>17%</strong></div><div><i class="legend-dot high-dot"></i><span>High risk</span><strong>8%</strong></div></div></div>
+          </article>
+
+          <article class="panel care-panel" id="settings"><div class="care-illustration"><span>✚</span></div><div><h3>Keep your herd healthy</h3><p>Regular health checks help catch symptoms early and keep your animals thriving.</p><a class="text-link" href="health-check.html">Start a health check <span>→</span></a></div></article>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
