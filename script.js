@@ -1,6 +1,22 @@
 const menuToggle = document.getElementById('menuToggle');
 const sidebar = document.getElementById('sidebar');
 const searchInput = document.getElementById('searchInput');
+const dashboard = document.querySelector('.app-shell');
+const storedFarmerName = localStorage.getItem('pashuFarmerName');
+
+if (dashboard && !storedFarmerName) {
+  window.location.replace('login.html');
+}
+
+if (dashboard && storedFarmerName) {
+  const profileName = document.getElementById('profileName');
+  const profileAvatar = document.getElementById('profileAvatar');
+  const welcomeName = document.getElementById('welcomeName');
+  const initials = storedFarmerName.split(' ').map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+  if (profileName) profileName.textContent = storedFarmerName;
+  if (profileAvatar) profileAvatar.textContent = initials;
+  if (welcomeName) welcomeName.textContent = storedFarmerName.split(' ')[0];
+}
 
 if (menuToggle) {
   menuToggle.addEventListener('click', () => {
@@ -31,6 +47,7 @@ const loginForm = document.getElementById('loginForm');
 const loginStatus = document.getElementById('loginStatus');
 const togglePassword = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
+const demoButton = document.querySelector('.demo-button');
 
 togglePassword?.addEventListener('click', () => {
   const isPassword = passwordInput.type === 'password';
@@ -47,5 +64,12 @@ loginForm?.addEventListener('submit', (event) => {
     loginForm.reportValidity();
     return;
   }
+  const emailName = document.getElementById('email').value.split('@')[0];
+  const displayName = emailName.replace(/[._-]+/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+  localStorage.setItem('pashuFarmerName', displayName || 'Farmer');
   window.location.href = 'index.html';
+});
+
+demoButton?.addEventListener('click', () => {
+  localStorage.setItem('pashuFarmerName', 'Demo Farmer');
 });
