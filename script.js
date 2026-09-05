@@ -26,3 +26,26 @@ if (searchInput) {
 document.querySelector('.notification-button')?.addEventListener('click', () => {
   alert('You have 3 new disease alerts.');
 });
+
+const loginForm = document.getElementById('loginForm');
+const loginStatus = document.getElementById('loginStatus');
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
+
+togglePassword?.addEventListener('click', () => {
+  const isPassword = passwordInput.type === 'password';
+  passwordInput.type = isPassword ? 'text' : 'password';
+  togglePassword.textContent = isPassword ? 'Hide' : 'Show';
+  togglePassword.setAttribute('aria-label', `${isPassword ? 'Hide' : 'Show'} password`);
+});
+
+loginForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  loginStatus.textContent = '';
+  if (!loginForm.checkValidity()) {
+    loginStatus.textContent = 'Please enter a valid email and password.';
+    loginForm.reportValidity();
+    return;
+  }
+  window.location.href = 'index.html';
+});

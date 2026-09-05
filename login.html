@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | PashuRaksha AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="login-brand-panel">
+      <a class="login-brand" href="index.html"><span class="brand-mark" aria-hidden="true">🐄</span><span>PashuRaksha <strong>AI</strong></span></a>
+      <div class="login-message">
+        <p class="eyebrow">SMART LIVESTOCK CARE</p>
+        <h1>Healthier animals.<br><span>Stronger farms.</span></h1>
+        <p>AI-powered livestock health insights that help you spot risks early and care with confidence.</p>
+      </div>
+      <div class="login-stat"><span class="login-stat-icon">✓</span><div><strong>48,000+ animals</strong><small>protected with PashuRaksha AI</small></div></div>
+    </section>
+
+    <section class="login-form-panel" aria-labelledby="login-title">
+      <div class="login-form-wrap">
+        <div class="mobile-login-brand"><a class="login-brand" href="index.html"><span class="brand-mark" aria-hidden="true">🐄</span><span>PashuRaksha <strong>AI</strong></span></a></div>
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2 id="login-title">Sign in to your account</h2>
+        <p class="login-subtitle">Access your livestock health dashboard.</p>
+        <form id="loginForm" class="login-form">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <div class="password-label"><label for="password">Password</label><a href="#forgot">Forgot password?</a></div>
+          <div class="password-input"><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button type="button" id="togglePassword" aria-label="Show password">Show</button></div>
+          <label class="remember-option"><input type="checkbox" name="remember"><span>Keep me signed in</span></label>
+          <button class="login-button" type="submit">Sign in <span>→</span></button>
+          <p class="login-status" id="loginStatus" role="status" aria-live="polite"></p>
+        </form>
+        <div class="login-divider"><span>or</span></div>
+        <a class="demo-button" href="index.html"><span>◉</span> Explore demo dashboard</a>
+        <p class="signup-prompt">New to PashuRaksha AI? <a href="#register">Create an account</a></p>
+        <p class="login-footer">By continuing, you agree to our <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>.</p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
