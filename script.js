@@ -7,6 +7,11 @@ const loginForm = document.getElementById('loginForm');
 const loginStatus = document.getElementById('loginStatus');
 const togglePassword = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
+const isStaticPages = window.location.hostname.endsWith('github.io');
+
+function saveStaticSession(email) {
+  localStorage.setItem('pashurakshaStaticSession', JSON.stringify({ email, displayName: email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase()), language: 'mr', profileComplete: true }));
+}
 
 togglePassword?.addEventListener('click', () => {
   const showingPassword = passwordInput.type === 'password';
@@ -28,7 +33,10 @@ loginForm?.addEventListener('submit', async (event) => {
     const data = await response.json(); if (!response.ok) throw new Error(data.error);
     const session = await api('/auth/session'); const sessionData = await session.json();
     window.location.href = sessionData.user?.profileComplete ? 'index.html' : 'profile.html';
-  } catch (error) { loginStatus.textContent = error.message || 'Unable to sign in. Please try again.'; }
+  } catch (error) {
+    if (isStaticPages) { saveStaticSession(loginForm.email.value.trim()); window.location.href = 'index.html'; return; }
+    loginStatus.textContent = error.message || 'Unable to sign in. Please try again.';
+  }
 });
 
 document.querySelector('.demo-button')?.addEventListener('click', (event) => {
@@ -40,6 +48,14 @@ document.querySelectorAll('.oauth-button').forEach((button) => button.addEventLi
 
 async function requireSession() {
   if (loginForm) return true;
+  if (isStaticPages) {
+    const staticUser = JSON.parse(localStorage.getItem('pashurakshaStaticSession') || 'null');
+    if (!staticUser) { window.location.replace('login.html'); return false; }
+    const profileName = document.getElementById('profileName'); const profileAvatar = document.getElementById('profileAvatar'); const welcomeName = document.getElementById('welcomeName');
+    const initials = staticUser.displayName.split(' ').map((part) => part[0]).join('').slice(0, 2).toUpperCase();
+    if (profileName) profileName.textContent = staticUser.displayName; if (profileAvatar) profileAvatar.textContent = initials; if (welcomeName) welcomeName.textContent = staticUser.displayName.split(' ')[0];
+    return true;
+  }
   const response = await api('/auth/session'); const data = await response.json();
   if (!data.authenticated) { window.location.replace('login.html'); return false; }
   if (document.body.classList.contains('profile-page')) return true;
