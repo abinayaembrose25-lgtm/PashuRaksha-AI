@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Profile | PashuRaksha AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <main class="profile-page-shell">
+    <section class="profile-intro"><a class="login-brand" href="login.html"><span class="brand-mark" aria-hidden="true">🐄</span><span>PashuRaksha <strong>AI</strong></span></a><p class="eyebrow">FARMER SETUP</p><h1>Help us care for your animals.</h1><p>Save your location and language so guidance feels local, clear, and useful.</p><div class="profile-safety">AI guidance is preliminary and never replaces a qualified veterinary doctor.</div></section>
+    <section class="profile-form-panel"><form id="profileForm" class="profile-form"><p class="eyebrow">YOUR PROFILE</p><h2>Tell us about yourself</h2><p class="muted">You can update these details later from Settings.</p>
+      <label for="farmerName">Farmer name</label><input id="farmerName" name="farmer_name" required maxlength="100" autocomplete="name" placeholder="Your full name">
+      <label for="contactNumber">Contact number</label><input id="contactNumber" name="contact_number" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number">
+      <label for="address">Address</label><textarea id="address" name="address" rows="2" maxlength="200" placeholder="House, farm, or street address"></textarea>
+      <div class="profile-grid"><div><label for="state">State</label><select id="state" name="state" required><option value="">Select state</option><option value="Maharashtra">Maharashtra</option><option value="Gujarat">Gujarat</option><option value="Karnataka">Karnataka</option><option value="Tamil Nadu">Tamil Nadu</option><option value="Telangana">Telangana</option><option value="Kerala">Kerala</option><option value="West Bengal">West Bengal</option><option value="Odisha">Odisha</option><option value="Punjab">Punjab</option><option value="Assam">Assam</option><option value="Other">Other state</option></select></div><div><label for="district">District</label><input id="district" name="district" maxlength="80" placeholder="District"></div></div>
+      <div class="profile-grid"><div><label for="locality">Village / town / city</label><input id="locality" name="locality" maxlength="100" placeholder="Your village or town"></div><div><label for="pinCode">PIN code</label><input id="pinCode" name="pin_code" maxlength="6" inputmode="numeric" placeholder="PIN code"></div></div>
+      <label for="preferredLanguage">Preferred language</label><select id="preferredLanguage" name="preferred_language" required><option value="mr">मराठी (Marathi)</option><option value="hi">हिन्दी (Hindi)</option><option value="en">English</option><option value="bn">বাংলা (Bengali)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="ml">മലയാളം (Malayalam)</option><option value="or">ଓଡ଼ିଆ (Odia)</option><option value="pa">ਪੰਜਾਬੀ (Punjabi)</option><option value="ta">தமிழ் (Tamil)</option><option value="te">తెలుగు (Telugu)</option><option value="as">অসমীয়া (Assamese)</option></select>
+      <button class="primary-button" type="submit">Continue to dashboard <span>→</span></button><p class="login-status" id="profileStatus" role="status" aria-live="polite"></p>
+    </form></section>
+  </main><script src="script.js"></script>
+</body></html>

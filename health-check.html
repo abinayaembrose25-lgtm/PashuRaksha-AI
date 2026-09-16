@@ -1,1 +1,14 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Health Check | PashuRaksha AI</title><link rel="stylesheet" href="styles.css"></head><body><main class="content-wrap"><a class="text-link" href="index.html">← Back to dashboard</a><section class="panel" style="margin-top:24px;max-width:680px"><p class="eyebrow">PASHURAKSHA AI</p><h1>Check Animal Health</h1><p class="muted">Start a guided health assessment for one of your animals.</p><a class="primary-button" style="margin-top:24px" href="index.html">Choose an animal</a></section></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Health Check | PashuRaksha AI</title><link rel="stylesheet" href="styles.css"></head>
+<body><main class="content-wrap"><a class="text-link" href="index.html">← Back to dashboard</a>
+<section class="panel health-form-panel" style="margin-top:24px;max-width:680px"><p class="eyebrow">PASHURAKSHA AI</p><h1>Check Animal Health</h1><p class="muted">Enter the animal's current observations for a backend health assessment.</p>
+<form id="healthCheckForm" class="health-form">
+<label for="animalName">Animal name</label><input id="animalName" name="animalName" required maxlength="80" placeholder="e.g. Gauri">
+<label for="animalType">Animal type</label><select id="animalType" name="animalType" required><option value="">Select type</option><option value="cow">Cow</option><option value="buffalo">Buffalo</option><option value="goat">Goat</option><option value="sheep">Sheep</option></select>
+<label for="temperature">Temperature (°C)</label><input id="temperature" name="temperature" type="number" min="30" max="45" step="0.1" required placeholder="e.g. 38.5">
+<label for="appetite">Appetite</label><select id="appetite" name="appetite" required><option value="">Select appetite</option><option value="normal">Normal</option><option value="reduced">Reduced</option><option value="none">None</option></select>
+<label for="behavior">Behavior</label><select id="behavior" name="behavior" required><option value="">Select behavior</option><option value="active">Active</option><option value="quiet">Quiet</option><option value="lethargic">Lethargic</option></select>
+<label for="symptoms">Symptoms (optional)</label><textarea id="symptoms" name="symptoms" maxlength="500" rows="3" placeholder="Describe anything unusual"></textarea>
+<button class="primary-button" type="submit">Run health check <span>→</span></button><p class="login-status" id="healthStatus" role="status" aria-live="polite"></p>
+</form><div id="healthResult" class="health-result" hidden></div></section></main><script src="script.js"></script></body></html>
